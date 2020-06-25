@@ -1,0 +1,13 @@
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.exe
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.deps.json
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.runtimeconfig.json
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.runtimeconfig.dev.json
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.dll
+C:\Users\alejandro746678\Documents\Coding Projects\TG\bin\Debug\netcoreapp3.1\TG.pdb
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.csprojAssemblyReference.cache
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.AssemblyInfoInputs.cache
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.AssemblyInfo.cs
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.csproj.CoreCompileInputs.cache
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.dll
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.pdb
+C:\Users\alejandro746678\Documents\Coding Projects\TG\obj\Debug\netcoreapp3.1\TG.genruntimeconfig.cache
