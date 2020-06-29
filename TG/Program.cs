@@ -46,7 +46,7 @@ namespace TG
             Console.ReadKey(true);
             int age;
             
-            if (int.TryParse(Console.ReadLine(), out age))
+            if (int.TryParse(Console.ReadLine().Trim(), out age))
             {
                 if (age >= 18)
                 {
@@ -84,6 +84,7 @@ namespace TG
         
         public static void second()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             string choice;
             Console.WriteLine("After a long perilous Journey to find the cure for you sick mother"); 
             Console.WriteLine("you took a trail into a forest that an old woman from\na local town you passed by told you about");
