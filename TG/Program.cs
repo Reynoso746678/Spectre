@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TG
 {
@@ -27,12 +29,24 @@ namespace TG
         
         public static void gameTitle()
         {
-            
+            Console.WriteLine(@"
+                                _    .  ,   .           .
+                *  / \_ *  / \_      _  *        *   /\'__        *
+                  /    \  /    \,   ((        .    _/  /  \  *'.
+            .   /\/\  /\/ :' __ \_  `          _^/  ^/    `--.
+                /    \/  \  _/  \-'\      *    /.' ^_   \_   .'\  *
+              /\  .-   `. \/     \ /==~=-=~=-=-;.  _/ \ -. `_/   \
+            /  `-.__ ^   / .-'.--\ =-=~_=-=~=^/  _ `--./ .-'  `-
+            /       `.  / /       `.~-^=-=~=^=.-'      '-._ `._
+                                Welcome to Spectre
+            ");
+            PromptToPressAnyKey();
+            Console.Clear();
             Console.WriteLine("before we continue, What is your age?");
             Console.ReadKey(true);
             int age;
             
-            if (int.TryParse(Console.ReadLine().Trim(), out age))
+            if (int.TryParse(Console.ReadLine(), out age))
             {
                 if (age >= 18)
                 {
@@ -40,7 +54,7 @@ namespace TG
                     Console.WriteLine("Great, you're at a perfect age to play, get ready.");
                     PromptToPressAnyKey();
                     Console.Clear();
-                    first();
+                    second();
                 }
                 else
                 {
@@ -67,44 +81,9 @@ namespace TG
 
         }
 
-        public static void first()
-        {
-            
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("So you want to play? Lets play");
-            PromptToPressAnyKey();
-            Console.Clear();
-            Console.WriteLine("Enter your name");
-            string userName = Console.ReadLine().Trim();
-            Console.Clear();
-            Console.WriteLine(@"
-    _____________________________
- / \                             \.
-|   |      You are hereby        |.
- \_ |    contracted to finish    |.
-    |      the death game        |.
-    |     any involvement in     |.
-    |     leaving will result    |.
-    |       in your demise       |.
-    |                            |.
-    |                            |.
-    |                            |.
-    |   _________________________|___
-    |  /                            /.
-    \_/dc__________________________/.
-             ");
-             Console.WriteLine("Signed: " + userName);
-             PromptToPressAnyKey();
-             Console.Clear();
-             Console.ForegroundColor = ConsoleColor.Green;
-             Console.WriteLine("Now that the formalities are finished lets continue..");
-             PromptToPressAnyKey();
-             second();
-        }
-
+        
         public static void second()
         {
-            Console.Clear();
             string choice;
             Console.WriteLine("After a long perilous Journey to find the cure for you sick mother"); 
             Console.WriteLine("you took a trail into a forest that an old woman from\na local town you passed by told you about");
@@ -174,6 +153,7 @@ namespace TG
                  case "look" :
                  {
                     Console.WriteLine(@"
+
             |>>>+           |~|_|~|_|~|                              |>>>+
             |              _|---------|_          .                  |
     |~|_|~|_|~|_|~|       [_|_________|_]         |>>>>>+      |~|_|~|_|~|_|~|
@@ -202,64 +182,7 @@ namespace TG
                     Console.WriteLine("only if you noticed it.. if the greed didn't..");
                     PromptToPressAnyKey();
                     Console.Clear();
-                    Console.WriteLine(@"
-                    
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╠╔█████████▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒∩ ╝██████████▌║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒┐╓└▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╬/`╙█████████░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒#╢║█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▓▓▓╬▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐████████╒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒█▓▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒k▀███████║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓█M╬▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╠▄███████╚▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒╠▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╜╠▄▄▄▄▄▓▓██████████▓▄╙╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒╙#██████████████████████▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒╙╫██████████████████████████▓ ║▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒,▄████████████████████████████ ║║▒▒▒▒▒▒▒▒▒▒▒▒
-
-║║║║║║║║║║║║║║▒▒▒▒▒▒▒▒▒▒▒▒▒▒║▒▒▓▓█▓██████████████████████████████ ║║▒▒▒▒▒▒▒▒▒▒▒▒
-
-║║║║║║║║║║║║║║║║║║║║║║║║║║║║║║║ ║████████████████████████████████,╚║║▒▒▒▒▒▒▒▒▒▒▒
-
-╠║║║║║║║║║║║║║║║║║║║║║║║║║║║║ ▄▓█████████████████████████████████▓ ║║║║║║║║║║║║║
-
-│││││││╠│╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠Ñ ▄▓█████████████████████████▀▒█████████⌐Ñ║║║║║║║║║║║║
-
-│││││││││││││││││││││││∩░`▄▓█████████████████████████▀Ñ╠║║████████∩│╠╠╠╠╠╠╠╠╠╠╠╠
-
-∩∩∩∩∩∩∩∩│∩││││││││││││∩│ ▓██████████████████████████▓▓░│││╙███████┌│││││││││││││
-
-               :∩∩∩∩∩∩  ▄████████████████████████∩│Ñ╙▒▓▓▓▒▄│██████└│││││││││││││
-
-                      `╒█████████████████████████∩∩  `└└╙▒▓▓██████  ∩∩│∩∩∩∩∩∩∩∩∩
-
-                     ╓▓██████████████████████████▒         │██████▄╗#▓▓▄,      
-
-                  .#█████████████████████████████▓M        ╢██████▓██████▓▄     
-
-                ▄▓████████████████████████████████▓M       ║██████∩╚████████▓▓▓▄
-
-             #████████████████████████████████████▓k       ▒█████         ╙████
-
-           ⁿ╜▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀╜       ╙▀▀▀▀┘           ╙▀▀
-                    
-                    
-                    ");
-                    Console.WriteLine("You felt a sharp pain, you look down..");
-                    Console.WriteLine("you see a knife tip between your chest and fog creeping at your feet..");
-                    Console.WriteLine("Everything turns black..");
-                    PromptToPressAnyKey();
-                    Console.Clear();
-                    gameOver();
+                    death();
                     break;
                  }
 
@@ -289,7 +212,7 @@ namespace TG
         public static void third()
         {
             
-            Console.WriteLine(@"'
+            Console.WriteLine(@"
                   [\
                   |\)        
                   |          
@@ -417,8 +340,11 @@ namespace TG
                     Console.WriteLine("You decide to take fate into your own hands");
                     Console.WriteLine("Confidence in your self.. or complete idiocy..\nyou decide to walk towards the shadow in the fog");
                     PromptToPressAnyKey();
-                    Console.WriteLine("");
+                    Console.Clear();
+                    Console.WriteLine("fog envelopes you, you can't see where you're walking or even your hands in front of your face");
+                    Console.WriteLine("But you do hear.. footsteps and a grey figure prominently in the fog");
                     PromptToPressAnyKey();
+                    Console.Clear();
                     fourth();
                     break;
                     
@@ -431,7 +357,12 @@ namespace TG
 
         public static void fourth()
         {
-            Console.Write(@"
+            Console.WriteLine("You see the figure stop a few feet in front of you");
+            Console.WriteLine("Your heartbeat is racing, you feel the adrenaline coursing through you veins");
+            Console.WriteLine("It speaks");
+            PromptToPressAnyKey();
+            Console.Clear();
+            Console.WriteLine(@"
     ██████████████████████████████████████████████████████████████████████
     █████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▓▓████████████████████████
     █████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████
@@ -454,7 +385,67 @@ namespace TG
     █████████████████▒█▒▒║▒║█║▒█▒▓▒▒█▀▒▓▒║▒║▓╠║╢▒▒▒▒██▒█▒▒▒███████████████
     ████████████████▓██▓▒▒█▒█▒▓████▒▒▓▒║▒▒▓▒║▒▒▒║▓▒║█▒▓█▒▓▓███████████████
             ");
-            Console.WriteLine("");
+            Console.WriteLine("'Why are you here'");
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. looking for something");
+            Console.WriteLine("2. Here for a challenge");
+            Console.WriteLine("3. Run");
+            Console.WriteLine("Choice: ");
+            string choice;
+            choice = Console.ReadLine().Trim().ToLower();
+            Console.Clear();
+            switch (choice)
+            {
+              case "1" :
+              case "look" :
+              case "looking" :
+              case "looking for something" :
+              {
+                Console.WriteLine("Please, I'm looking for medici-");
+                Console.WriteLine("It interupts you");
+                PromptToPressAnyKey();
+                Console.Clear();
+                Console.WriteLine("Oh.. you're just like the rest");
+                Console.WriteLine("Always in need..");
+                PromptToPressAnyKey();
+                Console.Clear();
+                Console.WriteLine("The only thing that you could see in this fog, fades away");
+                PromptToPressAnyKey();
+                Console.Clear();
+                death();
+                break;
+              }
+              
+              case "2" :
+              case "here" :
+              case "here for a challenge" :
+              {
+                Console.WriteLine("You smirk");
+                Console.WriteLine("I'm here for a cha-");
+                Console.WriteLine("It interupts you");
+                PromptToPressAnyKey();
+                Console.Clear();
+                Console.WriteLine("Oh.. you're just like the rest");
+                Console.WriteLine("Sad");
+                PromptToPressAnyKey();
+                Console.Clear();
+                Console.WriteLine("The only thing that you could see in this fog, fades away");
+                PromptToPressAnyKey();
+                Console.Clear();
+                death();
+                break;
+              }
+
+              case "3" :
+              case "run" :
+              {
+                Console.WriteLine("You decided to get away from the figure, as quickly as possible");
+                PromptToPressAnyKey();
+                death();
+                break;
+                
+              }
+            }
             PromptToPressAnyKey();
             Console.Clear();
             
@@ -494,20 +485,19 @@ namespace TG
                                    ▐░║▒▓╙              ║███████████████████▄
                               .,,, ║▒╫█▒,              └█████████████████████▄
                              ▒▒▒▒╢▒▓▓▓█▓m#▓▓µ           ▀██████████████████████▄
-
-            
-              
+     
               ");
               string choice;
               Console.WriteLine("An armed skeleton appears");
               PromptToPressAnyKey();
-              Console.WriteLine("Clearly the reason of the skull");
-              Console.WriteLine("A crack of its hips and starts walking towards you");
+              Console.WriteLine("Clearly the reason for the skull");
+              Console.WriteLine("A crack of its hips and it starts walking towards you");
               Console.WriteLine("What do you do?");
               Console.WriteLine("1: Fight");
               Console.WriteLine("2: Run");
               Console.WriteLine("Choice: ");
               choice = Console.ReadLine().ToLower().Trim();
+              Console.Clear();
               switch(choice)
               {
                 case "1" :
@@ -517,9 +507,9 @@ namespace TG
                    Console.WriteLine("Even though, you don't have a weapon..");
                    PromptToPressAnyKey();
                    Console.Clear();
-                   Console.WriteLine("Raising your first in the air, you decide to swing");
-                   Console.WriteLine("The skeleton unfazzed, raises its shield ");
-                   Console.WriteLine("Deflects the punch, and you wreath your fist in pain");
+                   Console.WriteLine("Pulling back you fist, you decide to swing");
+                   Console.WriteLine("The skeleton unfazed, raises its metal shield");
+                   Console.WriteLine("You felt a crunch as it deflects the punch, and you wreath your fist in pain");
                    Console.WriteLine("then you feel a sharp pain through your stomach");
                    PromptToPressAnyKey();
                    Console.Clear();
@@ -530,11 +520,380 @@ namespace TG
                 case "2" :
                 case "run" :
                 {
+                  Console.WriteLine("You stumble to your feet at the sight of it");
+                  Console.WriteLine("As you feet scrape the floor to get away");
+                  Console.WriteLine("You see an entrance to the castle");
+                  PromptToPressAnyKey();
+                  Console.Clear();
+                  Console.WriteLine(@"
+          
+          ▓▓▓▒║▒▓██▒▒▒▒▓▒▒▒▒▒▓▓╢▒▀▀▀╢╢╫║█▒█▀██▒▒██████▓▒║▒▓▒
+          ▓▓█▓▓▓███▒▒▓▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒╡╢╫║▒▒╢▒▀████▒█▓▓█▒▒
+          ██████▓██▒▓▓▒██▒▒█▒▒▒╠║▒▒▒▒║█▒╠▀▒▓╫▒NN║▒║▒▒▓▒█▒▓▓█
+          ███▓▒▒▒▀▒███▒▒▒║▒▒▓╫▓▒▒▒▒▒▓▓▓▓█▒▒N╢▒▀▒▓▒║╢▒█▒▀███▒
+          █▒▓║▒╢███▒▒██▓█╠ÑÑ║M#Q▒▒▒▒▒#MÑÑÑ╙▀▓▓▒▒▒▒█▓▒▀▒║▓▓█▓
+          █▒▓▒███▓▒██▀ÑÑ╠▒▓▓█▀▒▒▒▒▒▀║▒▒█▓▓▓▒NÑ▀▀▓▒║▒███▒╠▀╙║
+          ▒▒▒██▓████▓▒▓▒▀╢║▒▒▓▓▓▒▒▒▓▓▓▓▒▒Ñ║▒▀▒▒#╙██▒╙▓▒▓▒║▒∩
+          ▓▒██▓▒███▒██▒║▒▓▒▒▓▒▒▒▒██▓▒▒▒▒▒▒▒╫Ñ╢Ñ╫█▒▒▀▓▒║╠█▒▒▒
+          ▒█▓█▒█▒▒▒█████▓▓▒███▒█▓▓▓▓▓▒▒█▓█▒▒╢▒▒╢║█▄▀▒█▒▒▓▒M╫
+          █▒▒▒█Ñ║║█▀▀██▒▒█▒▒████████████▒▓██▒▒▒▓▒▓║█Ñ▒█▒▒▒█▒
+          ██▓▓█▒▒██▓▓▒▒▓▒▒█████████████████▒██▒▓▒▒▓█∩╬║▒▒▒██
+          █████▒▓█▓▒█▒╫▒████████████████████▒║█▓█L/╫█▀██████
+          █████▒█▒▒█▀▀║▓████████▒██▒▒▒███████▓█▓▓▓▒▓█╠║████▒
+          █▒█║▒▒▒█▀▀░N▒║████▓█▓▓██████▒▒█████▓█▒▒█████║██▒▒█
+          ▒▒▒█▒█║▒▒╠║╠▌║███▒▒▓██▒▒█▓▓▓▒▓▒████▒║▒╠ ╓▄█║▒█▒▓▒█
+          ▓█▒█▒▌╫Ñ▒║▒║▓████▒▒█▒▒║▒█▒▒▒▒██▒███▒▒█▒∩║▒█Ñ▒║▓║▒╢
+          ▓█║▒▒▒█║▒Ñ│▐▒██▓▓▒▒▓▒▒▒▒█▓▒▒▒▓▓▒████▒▒▒M∩▒║▒▒▒█▒▓▒
+          ▒██▒█▒█║∩│∩║░███████▓▓▓▓█▓█▒▓█▓▓████▒▒∩∩ ▒║█╢▒██▒▒
+          █▒█▒▓▒▌║╙╠∩║▐██▒▒▒██▒▒▒▒█▒▒▒▒██▒▒███▒█▓▒∩║║▒▒▒▒▓█▒
+          █▓█▓▒█▒▓║∩│▒║███▒▓╢▓▓▒▒▒█▒▒▒▒▓▓▓▓███▒║▒▒∩║╢█▒▒▒█░▒
+          ████▒█╢▌M∩│▓╫███▒▒███▒▒▓█▒▒▒████████▒╢▓▓∩∩╙║▓▒▒███
+          Ñ█▒█▒█║▒╢┼W▌█████████▒█▒█▒▒▒█████████▒█▒╠∩░║█╫▒║█║
+          ∩▒│▒▐▒║∩│∩▐▒█████████▓▒▒█▒▓▓█████████╢█▒╢∩║║▒▒▒║▒Ñ
+          (╜│`▐`║` └║M██████████▒▒██▒██████████▒█║Ñ└╚∩║╚╠└▒╚
+          ╫M╢╖▒N▒   ║▐█████████▒██▒██▓█████████▌║∩` ▐M▒M▓#▒░
+          ▓▒#█▒NN▌  ▒▐██▓█████████▒█▒██████████▒▐∩ ╓▌│Ñ║▌▄▄╫
+          ▒W┐║▒∩└▒  ╞║█████████▒▒██▓▒██████████▌▒  ║▌│╠█▌╚╙║
+          ░│Ñ█║∩:▓  ║╫████▓▓███████████▓█▓██████║∩ ⌠▌└╚║█∩N║
+          ││:█╔:(▌∩^███▓M▓▓▓▓▒╢╜▒▒▒▒▒▒MMM▒╢▓▓▓▓██M∩N█:N║▓∩∩⌠
+          ∩│║█QQ▒▒▒▒▒▒▒▒▒▒▒▒▒▀▒▒▒▒▒║▒▒▒▒╙▒▒▒▒▒▒▒▒▒▒██▓▓██▌││
+          █▒█▒▒▒▒███▒██▒▒▒╠▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒╠╠▒▒▒║▒▒▒█▒█▒▒▒
+          ╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙╙▀╙╙╙╙▀▀▀▀▀▀╙╙▀▀╙╙╙
+                  ");
+                  
+                  Console.WriteLine("Doors bigger than anything back at home");
+                  Console.WriteLine("You rush to the door");
+                  Console.WriteLine("you start hearing a scraping noise following you");
+                  Console.WriteLine("Afraid to look back you push the door");
+                  PromptToPressAnyKey();
+                  Console.Clear();
+                  Console.WriteLine("It opens");
+                  PromptToPressAnyKey();
+                  Console.Clear();
+                  Console.WriteLine(@"
+
+            ▒▒▒▒Ñ╙┘╫╢▄µ╙∩∩╙╙Ñ∩∩∩∩╓»∩.;∩(y│∩(∩▒▒▒╙∩N½╖N∩⌠∩:╙N∩∩»¿∩││╓#Ñ∩│
+            ╝╢#╬▒K▒▀║▒▒▒M(∩:∩:┌╓╜└`.▄#▀Ñ∩∩∩│∩∩      7∩,└┤∩∩∩│∩│∩│∩┘∩││Q▄
+            ╙╙Q▄««┘ⁿ½┤╙╢Ñ▒⌠⌠│#╜└.▄∩└   │▄▓██▓▓#╗╗▄▄, 7┌∩│ ╘∩└▄▄▄æ#∩╙╙╙ÑÑ
+            └┌╔╔NNN∩N∩∩░½▒│╓╜:.#╙   ╓▄▓▒████████████▒▓▄│░  `,└  ..┌╔│∩││
+            │Ñ∩│∩N┘ ÑN│∩║║Ñ└ #Ñ  .▄▓███████████████▒▒▒▒▒░NN╔ ∩∩│∩│N│∩∩∩│
+            │@µ∩┐∩∩m#░││∩│∩╓╚` ┌▄▒████████████████▒▒▒▒▒▒▒▒∩Ñ∩∩│NN∩∩∩)⌠∩∩
+            æ½M∩╙╙╙╙╙╙╫▄∩ #∩ ⌠╓▒█████████████████████████▒▒∩│∩│││N│┤∩⌐∩∩
+            ││∩∩∩│∩│╢N┤Ñ:║∩ │╔▒████████▒██████████████████▒M ∩▐∩N∩∩╙∩⌠││
+            ∩∩:│∩∩∩N▒Ñ│∩N░  ║▒████████████████████████████▌Ñ∩│∩M▐╚N╚M∩\│
+            ∩∩N∩∩N│ÑÑ∩│∩.∩∩y▒████████████▒███████║██████▒▒▒M┤∩▐Γ║∩╚╚∩└,7
+            ∩∩N╙░║∩▐▒▒╢╠║∩ ║▒▒▒██████████▓▓▒▒▒▒███▓███████▓#∩N║MMM#║K╚∩7
+            ∩N@╢░║▒▒▒▒╢M╜M╙╠▓▒▒▒▒██▓██████████████████████▓╠│╠R,⌠║╙Ñ░╙LV
+            N├╠│╞▒░▒▒Ñ╠║▒▒▒████▒▓████████████████████████▒▒▓ÑN╠Ñ║M║∩NN∩∩
+            │├M║∩││▒Ñ╠∩∩Ñ∩▐▒▒███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒Ñ╡∩∩ÑM∩│K││#║
+            │∩∩│Ñ││▒▒ÑN∩╙│║▒▒███▓▒▒▒▒▒▒▓█▓▓███████▒▓▒▒▒▒▒█▒MÑ╢∩∩│∩│╙∩∩│║
+            │╚│║┤N┼▒▒▒╢⌠╓∩▒▓▒▒▒▒▒▒▒█▓█▓▓▓▒▒█▓▓█▒▒▒█▒▒▒▒▒▒▒▓Ñ║║Ñ║∩N∩╓∩│⌠║
+            AN║╙▒▒▒▒▒▒║║╚║║▒▒▓▓▓▓▓▓▓▓█▓▓▒▒▒▓▒▒▒▒▓▓▓▒▒▒▓╢▒▓▓-║╠╡∩│ÑÑ║│║║║
+            │NN⌠Ñ║║▒▒▒▒║║N║▒▒█▒███▓██▓▓▓▒▓╢▓▒▒▒▓▒▒▒▒▓▓██▓▒▓ ║║∩│││┤║╠║╠║
+            ╠╫╡╠Ñ║║▒▒▒▒▒║║║▒║█▒▒▒▒▒▒▒▒▒▒▓▒▓▓▓█▒▒▒▒▓▓█▒█▓▒█¡║╠╡N∩∩╠Ñ∩╠║║
+            ║∩╙╚NÑ║▒▒║▒║║╠║▓██▓▒▒▒▒▒▒▒██▒▒▒▒║▒▓██▓▓▓▒▓▓█▓▒▒∩║ÑÑ▒│⌠Ñ╠Ñ╫Ñ║
+            ║░∩▐∩║▒▒▒╢▒▒▒▒║▓███▒▓▒▒▒▒▒███▓██▒▒█▒▒▒██▒██▒▓▓▓│▒▒Ñ▒║╢││║║▒▀
+            ║║Ñ╠║Ñ╠▒▒╢▒║║▒╫▒███▒▓▒▒▓▒▓██▒▒█▌▓▒▒▒█▓█▒▒▓▓▒███│▒▒W▒║M∩│Ñ║║▓
+            ║║┤╠║║║▒▒▓Ñ║║▒█▒██▒▒█▒▒█▒▒███▓▓▒▒▒█▒█▓▒█▒▓▓▒██▌│▒Ñ╠Ñ║╢Ñ∩Ñ╠▒╢
+            ║╠║║║╢╫▒▒▒║▒║║█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█.▒║║║┤│┤┤║Ñ║║
+            ║║║╠╢╢▒▒▒▒║║║║█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█(▒┤∩╙Ñ╠╠ÑÑ╠╢║
+            ║║∩║║╠▒▒▒Ñ▒║║╠████▒█████▒▒▓████▒▒▒█▒█████▓█▒██▌└╢Ñ╢║Ñ║║N╠Ñ▒║
+            ║║║Ñ║╠▒▓▒▒║║║║████████████▓████▒▒▒║▓█████▒█▓██▌│Ñ║Ñ╫▒∩║Ñ∩▀Ñ║
+            ║╢║║║║▒▒▒▒▒║║▐████▓▒▓▓▓▓▓██▓███▒█▒██▓██▓▓▓▓███▌N∩╠║Ñ║▒▒▒▒▒▓█
+            ╠░╢╠╢║▒▒▒▒╢▒╠║████▒█████▒██▓██████▒▒███▓▓█████▌/▒Ñ║▒╢▓▒▒▒▒║║
+            ╢║Ñ║∩║▓▒▒▒▒║║║█████████████▒███▒█▒▒▒▓█▒█▒█▓▒██▒▐▒▒▓▓▒▒▒║╢▒▒▓
+                  ");
+                  Console.WriteLine("You hastily shut it when you get in");
+                  Console.WriteLine("fearing its not enough, you find a wood beam");
+                  Console.WriteLine("and bar it from ever opening again");
+                  PromptToPressAnyKey();
+                  Console.Clear();
+                  sixth();
                   break;
                 }
               }
-              choice = Console.ReadLine().ToLower().Trim();
+        }
 
+        public static void sixth()
+        {
+          Console.WriteLine("You hear frustrated thumps at the door as you catch your breath");
+          Console.WriteLine("Knowing you're safe, for the time being");
+          Console.WriteLine("What do you want to do?");
+          Console.WriteLine("1. Look around");
+          Console.WriteLine("2. Rest");
+
+          Console.WriteLine("Choice: ");
+          string choice;
+          choice = Console.ReadLine().Trim().ToLower();
+          Console.Clear();
+          switch (choice)
+          {
+            case "1" :
+            case "look" :
+            case "look around" :
+            {
+               Console.WriteLine(@"
+          
+    ▒▒▒║╢▒▒▒▒▒▒║║║║║║║║║Ñ│││∩∩∩∩∩∩∩∩∩∩∩∩│N∩(∩\)∩∩∩∩∩∩∩∩∩∩∩∩└││┤ÑÑ║║║║║║║║│║║║▒Ñ║▒███
+    ▒▒║║║║║║║║║║║║║║││Ñ∩∩│N∩▄▄▄▄▄▄╗████████████▄N∩∩││∩           ╚║╠╠║Ñ│Ñ║║▒▒║▒█████
+    ▒▒▒║║║║║║║║║║║║│      ∩▐██████████████████████▓║║║              │││║║║▒║║▓█████▒
+    ╢▒║║▒╢▒║║║║║║║││        ██████████████████████▒▒║                  ║║Ñ║██████▒▒▒
+    █▒▒▒▒▒▒▒▒▒╢║║          ⌠▀▀█████████████████████▒▒║                  │▓████▒▒║▒▒▒
+    █████▓█▒▒▒▒▒║║            Ñ▀██████████████████▓▒▒║║╠               N▒█▒▒║▒▓▒▓▒▓█
+    ████████████▒▒░             ⌠▀████████████████▒║▒╢╢║║║               ▒▒▒║▒█▒▓██▒
+    ▓▓▒▓▓▒▒║████▒                 ║███████████████▓██▓▒╢Ñ║               ▒▒▒▓╢██▒▒██
+    █████▓▓▒▒▓▒╢█▒                ▓███████████████▒███▒▒Ñ                ▓▒▓█▒██▒▒██
+    ██████████▓▓█∩                ▒████████████████▒▒▒▒▒Ñ               ║▒██████▒███
+    ▓███████████▒                 M████████████████▒██▒╚ML               ██▒█▒▒█▒███
+    ████▒███▒▒██▒                  ███████▀███████▒▒▓▒▒MM▒Γ⌠             ║█║╢╢╢▌████
+    ██████▒██▒█▒╢                  ▓██▒██▒▒▒██▒███▒▒▒▒▒N∩║               ║▒▒╢│▒▓████
+    ███████▒▒▒█▒▒▒N               ▓███▒▒▒▒▒▒▒▒▒█████▒▒▓▓╢░              M▓▒║▒▒▒▓████
+    ████████╢╢Ñ▒██▒              ╢████▒▒▒▒▒▒▒▒▒██▒█▓▓▒N▒▒░              ▒█▒▒▒▓▒▓████
+    ██████▒▒▒▓▓▒╫█▒╫            ▓▀▓▓██▒▒▒▒▒▒▒▒▒███▒█▓▓▒╠▒▓              █▒║▓▓▒▒█████
+    █████▒██████▒                  ███▒▒▒▒▒▒▒▒▒███▒▓▒▒▒╢∩▒               ║█▒▒▒╠█████
+    █████▒██████▒                  ███▒▒█████▒▒████▒▓▒▒▒╢∩▒              ║█▒▒▒╠█████
+    █████▒▒▓▓▓▒▒▀▒╕         ║╢▒M▒▒▒▒║║▒█▒█▒▒▒▒██▒▓▒▒▒╠░░~#∩(╔╔∩«#⌐ ▐  │  ║██████████
+    ██████▒██▒▒▒▀       M╠▒▒██▓▓▓▓▓█████████████████▓╙║▒▒╢╢█▓┤╢▒░N║▓▓▓▓║╠Ñ║█▒▒██████
+    █▓█████▒█▒▒▒∩∩` ╘╪╢╣╛║▓▓▀▒▓▓▓▀▀╣▓▀▀▀▓██▀▒████▒██▒╠▓▓▓┼╫▒▒▒▒║▒▒▒▒██▒▒╠▒▓█▒▒▒█████
+    ██▀▀▀▀║╪╝▒Ñ▒Ñ   │Ñ║▒╠╠N▓M▀▀Ñ╫▓▓▀Ñ████Ñ▒▒▒█▒▒███▒Ñ▒▓▒╢╡│╫██╡║╫█▓█╢╫█▒▒▒▒▒▒▒▒█▒███
+    ÑÑ▒╙Ñ╠│▓▀▀▀NN   ∩│Ñ▒▓█▀▀Ñ▒▓▀▀▒∩▓██▀½┼▓▓█▓╡▄████Ñ╠▒▒▒Ñ││▒██▒▒∩▀██▓▒▒╙▒█▓▓▒▒▒█▓███
+    Ñ▄▀▀▀▀▀K▓▓▓▒M⌂.:N║╠│Ñ▒▒▒▒▒ÑÑ╠██▀▀∩K▓▓▓▓M┼æ████▄│▄▒▓▒Ñ││╠███▒∩Ñ▀███▒╠▒████▒▒▓▓██▓ 
+          ");
+              Console.WriteLine("With a quick glance you can see a chair.. maybe a throne?");
+              Console.WriteLine("A lot of beautiful adornments of royalty bestrewn on the floor");
+              PromptToPressAnyKey();
+              Console.Clear();
+              Console.WriteLine("The chair seems to calling to you");
+              Console.WriteLine("You start walking to the chair");
+              Console.WriteLine("Hearing constant whispers, you never noticed the fog \nSweeping through the room coming from the cracks of the door");
+              PromptToPressAnyKey();
+              Console.Clear();
+              seventh();
+
+              break;
+            }
+            case "2" :
+            case "rest" :
+            {
+
+              Console.WriteLine("You decide to rest");
+              Console.WriteLine("A little worn out, you pick a corner and slip into a nap");
+              PromptToPressAnyKey();
+              Console.Clear();
+              Console.ForegroundColor = ConsoleColor.Red;
+              Console.WriteLine("Not knowing that you'd never wake up again");
+              PromptToPressAnyKey();
+              Console.Clear();
+              gameOver();
+              break;
+            }
+          }
+        }
+        
+        public static void seventh()
+        {
+
+          Console.WriteLine("You touch the throne");
+          Console.WriteLine("The whispers stop");
+          Console.WriteLine("A low bellow voice echoes the chamber");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'I know why you are here'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'I have a proposition for you..'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'If you answer my riddle correctly, I'll give you the medicine'");
+          Console.WriteLine("'but..'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'If you lose'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'You will be our new king'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'Rule these lands.. and the dead'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("'Lets begin'");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          phrases();
+          
+        }
+        
+        public static void eighth()
+        {
+          ghost();
+          Console.WriteLine("Be proud");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("You may have the medicine");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("But we will meet again");
+          PromptToPressAnyKey();
+          Console.Clear();
+          ghost();
+          Console.WriteLine("Farewell");
+          PromptToPressAnyKey();
+          Console.Clear();
+          youWin();
+        }
+        public class Riddle
+        {
+          public string Text { get; set;}
+          public string Answer { get; set;}
+
+          public bool IsCorrect(string answer)
+          {
+            return String.Compare(answer, Answer, true) == 0;
+          }
+          
+        }
+       public static void phrases()
+        {
+          var riddles = new List<Riddle>()
+            {
+              new Riddle { Text = "I have cities, but no houses. I Have Mountains, but no trees. \nI have water, but no fish. \nWhat am I?", Answer = "a map"},
+              new Riddle { Text = "I speak without a mouth and hear without ears. \nI have no body, but come alive with the wind. \nWhat am I?" , Answer = "an echo"},
+              new Riddle { Text = "You measure my life in hours and I serve you by expiring. \nI'm quick when I'm thin and slow when I'm fat. \n The wind is my enemy. \nWhat am I?", Answer = "a candle"}
+
+            };
+
+            Random random = new Random();
+
+            foreach (var riddle in riddles.OrderBy(r => random.Next()))
+              {
+                  Console.WriteLine (riddle.Text);
+
+                  do
+                  {
+                      var answer = Console.ReadLine().Trim().ToLower();
+                      if(riddle.IsCorrect(answer))
+                      {
+                        Console.Clear();
+                        Console.WriteLine("Correct");
+                        PromptToPressAnyKey();
+                        Console.Clear();
+                        Console.WriteLine("You are worthy");
+                        PromptToPressAnyKey();
+                        Console.Clear();
+                        eighth();
+                        break;
+                      }
+                      Console.Clear();
+                      Console.WriteLine("Wrong");
+                      PromptToPressAnyKey();
+                      Console.Clear();
+                      Console.WriteLine("You are not worthy");
+                      PromptToPressAnyKey();
+                      Console.Clear();
+                      gameOver();
+                      break;
+                  } 
+                while (true);
+                break;
+              }
+         }
+    
+        
+
+        public static void restart()
+        {
+          string choice;
+          Console.WriteLine("So you died, wanna go again?");
+          Console.WriteLine("1. Yes");
+          Console.WriteLine("2. No");
+          choice = Console.ReadLine().Trim().ToLower();
+          Console.WriteLine("Choice: ");
+          Console.Clear();
+          switch (choice)
+          {
+            case "1" :
+            case "yes" :
+            {
+
+              Console.WriteLine("Good Choice");
+              PromptToPressAnyKey();
+              Console.Clear();
+              second();
+              break;
+            }
+            case "2" :
+            case "no" :
+            {
+              Console.WriteLine("Disapointing");
+              PromptToPressAnyKey();
+              Environment.Exit(0);
+              break;
+            }
+          }
+
+        }
+
+        
+        public static void death()
+        {
+          Console.WriteLine(@"
+                    
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╠╔█████████▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒∩ ╝██████████▌║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒┐╓└▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╬/`╙█████████░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒#╢║█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▓▓▓╬▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐████████╒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒█▓▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒k▀███████║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓█M╬▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╠▄███████╚▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒╠▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╜╠▄▄▄▄▄▓▓██████████▓▄╙╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒╙#██████████████████████▓▄╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒╙╫██████████████████████████▓ ║▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒▒▒,▄████████████████████████████ ║║▒▒▒▒▒▒▒▒▒▒▒▒
+
+║║║║║║║║║║║║║║▒▒▒▒▒▒▒▒▒▒▒▒▒▒║▒▒▓▓█▓██████████████████████████████ ║║▒▒▒▒▒▒▒▒▒▒▒▒
+
+║║║║║║║║║║║║║║║║║║║║║║║║║║║║║║║ ║████████████████████████████████,╚║║▒▒▒▒▒▒▒▒▒▒▒
+
+╠║║║║║║║║║║║║║║║║║║║║║║║║║║║║ ▄▓█████████████████████████████████▓ ║║║║║║║║║║║║║
+
+│││││││╠│╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠╠Ñ ▄▓█████████████████████████▀▒█████████⌐Ñ║║║║║║║║║║║║
+
+│││││││││││││││││││││││∩░`▄▓█████████████████████████▀Ñ╠║║████████∩│╠╠╠╠╠╠╠╠╠╠╠╠
+
+∩∩∩∩∩∩∩∩│∩││││││││││││∩│ ▓██████████████████████████▓▓░│││╙███████┌│││││││││││││
+
+               :∩∩∩∩∩∩  ▄████████████████████████∩│Ñ╙▒▓▓▓▒▄│██████└│││││││││││││
+
+                      `╒█████████████████████████∩∩  `└└╙▒▓▓██████  ∩∩│∩∩∩∩∩∩∩∩∩                 
+                    
+                    ");
+                    Console.WriteLine("You felt a sharp pain, you look down..");
+                    Console.WriteLine("you see a knife tip between your chest and fog creeping at your feet..");
+                    Console.WriteLine("Everything turns black..");
+                    PromptToPressAnyKey();
+                    Console.Clear();
+                    gameOver();
         }
 
         public static void gameOver()
@@ -582,13 +941,65 @@ namespace TG
             Console.WriteLine("Game Over");
             PromptToPressAnyKey();
             Console.Clear();
-            gameTitle();
+            restart();
         }
 
         public static void youWin()
         {
+            
+            Console.WriteLine(@"
+                           (   )
+                          (    )
+                           (    )
+                          (    )
+                            )  )
+                           (  (                  /\
+                            (_)                 /  \  /\
+                    ________[_]________      /\/    \/  \
+           /\      /\        ______    \    /   /\/\  /\/\
+          /  \    //_\       \    /\    \  /\/\/    \/    \
+   /\    / /\/\  //___\       \__/  \    \/
+  /  \  /\/    \//_____\       \ |[]|     \
+ /\/\/\/       //_______\       \|__|      \
+/      \      /XXXXXXXXXX\                  \
+        \    /_I_II  I__I_\__________________\
+               I_I|  I__I_____[]_|_[]_____I
+               I_II  I__I_____[]_|_[]_____I
+               I II__I  I     XXXXXXX     I
+            ~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~
+            ");
+            Console.WriteLine("You finally made it back");
             Console.WriteLine("You win");
+
             PromptToPressAnyKey();
+            Environment.Exit(0);
+        }
+
+        public static void ghost()
+        {
+          Console.WriteLine(@"
+    ██████████████████████████████████████████████████████████████████████
+    █████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▓▓████████████████████████
+    █████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████
+    █████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒█▓▒▓▒▒▓▓▓▓▓▓▓▓▓████████████████████
+    █████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒███▒▒▒▒▒▒▓▒▓▓▓▓▓▓▓▓▓▓█████████████████
+    ███████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓▓▓▓▓▓████████████████
+    ████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒║▓█▒╢▒║▒▒▓▒▒▒▒▒▒▒▒▓▓▓▓▓▓██████████████
+    ██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▌║║███▒∩Ñ▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓█████████████
+    ████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║██▒╠█████∩∩▒▒▒▓▒▒▒▒▒▒▒▓▓▓▓▓▓████████████
+    ████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒║▀█▒▄████M█╡Ñ║M▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓███████████
+    ███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║╠║║║██████╚╙∩#╙██▒▒▒▒▒▒▒▒▒▓▓▓▓███████████
+    ███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒█▒║╠│╡║███████│▒Γ║█▓▒▒▒▒▒▒▒▒▓▓▓▓▓▓██████████
+    ████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███░╠└└║Ñ███████▒▒╓█▒▒▌▒▒▒▒▒▒▒▒▓▓▓▓▓██████████
+    ████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒█████│K╓,└╚█████▀╫∩▓▒║▒Ñ▒▓▒▒▒▒▒▓▓▓▓▓▓██████████
+    ███▓██▓▓▓███▓▓█▓▓▓▓▒▒║▒║▒▒█▒█▒▒▓▒▄:████║▌╠╢▒▒▒║▒▓▓▒▒▓▒▒▓▓▓▓▓██████████
+    ████████████████▓▓▓▒▒▒▒║█║▒▒║▒▒▒▒╠█▒██▒█┤║▒▒▒Ñ▒▒█║▓▒▒▓▓▓▓▓▓▓██████████
+    ██████████████████▒▒▒▒║▒║█║▒▒▒█▒▒╢║███▀║▒▒║█∩║▒▒▒▒▒▒▒▒▓▓▓▓▓▓██████████
+    █████████████████▒▒▒▒▒║█▒█▌║▒▒║█▒▒▒█▀∩#▒║║▒Ñ╔▒▒║Ñ║█║▓▒▒▓▓▓▓███████████
+    █████████████████▒█▒▒▓▒█▒▒█▒▒▒▒▒███▒▒▒▒▒▒▒Ñ║║▒▒▒║█▒║▓▒║▓▓▓████████████
+    █████████████████▒█▒▒║▒║█║▒█▒▓▒▒█▀▒▓▒║▒║▓╠║╢▒▒▒▒██▒█▒▒▒███████████████
+    ████████████████▓██▓▒▒█▒█▒▓████▒▒▓▒║▒▒▓▒║▒▒▒║▓▒║█▒▓█▒▓▓███████████████
+          ");
         }
     }
 }
