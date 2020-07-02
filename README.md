@@ -7,7 +7,8 @@
 2. download zip
 3. Click and drag TG folder to desktop
 4. Open up TG folder
-5. Click TG.exe to play
+5. Open up bin folder
+6. Click TG.exe to play
 
 # I haven't fixed the downfall of mistyping or setting up fail safe if you push enter.
 # If app closes due to wrong letter or number click just go back to .exe to play again
